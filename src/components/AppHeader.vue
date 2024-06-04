@@ -1,12 +1,14 @@
 <script>
 import myData from '../store/data';
 import LinkCard from './LinkCard.vue';
+import submenu from './submenu.vue'
 import imgUrl from '../assets/img/h5-logo-divided-header.png'
 import iconUrl from '../assets/svg/svg-0.svg'
 
 export default {
     components :{
-    LinkCard
+    LinkCard,
+    submenu
     },
   data() {
    
@@ -77,7 +79,15 @@ export default {
                         <li class=" align-self-center dropdown">
                             <a class="nav-link" href="#">Blog</a>
                             <ul class="dropdown-menu" id="blog-menu" >
-                                <LinkCard v-for="link in myData.links.blog.blog_links" :links="link" />
+                                <LinkCard v-for="link in myData.links.blog[0].name" :links="link" />
+                                <li class="dropdown-item dropdown" style="">
+                                    <img style="height: 10px;" class="myVisible" :src="iconUrl" alt="">
+                                    <a id="a" class="text-decoration-none text-black" href="#">
+
+                                        {{ myData.links.blog[1].name }}
+                                    </a>
+                                    <submenu />
+                                </li>
                             </ul>
                         </li>
                         <li class=" align-self-center">
@@ -110,9 +120,26 @@ export default {
     margin-left: 0;
 }
 .dropdown:hover>.dropdown-menu{
+    background-color: rgb(36, 36, 36);
     display: block;
     position: absolute;
     width: 180px;
     left: 0;
+}
+section{
+    margin: 0 auto;
+    position: absolute;
+    top:0;
+    left:15%;
+    z-index:1;
+}
+.myVisible{
+  visibility: hidden;
+}
+.dropdown-item:hover{
+  background-color: rgb(92, 91, 91);
+  .myVisible{
+    visibility: visible;
+  }
 }
 </style>

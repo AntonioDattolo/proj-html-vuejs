@@ -1,9 +1,11 @@
 <script>
 import Jumbo from './Jumbo.vue';
+import cardContainer from './Card.vue'
 
 export default {
   components: {
-   Jumbo
+   Jumbo,
+   cardContainer
   },
   data() {
     return {
@@ -24,6 +26,7 @@ export default {
 <template>
    
     <Jumbo />
+    <cardContainer />
    
   
 </template>

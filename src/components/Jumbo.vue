@@ -26,15 +26,37 @@ export default {
       slideBg_1,
         slideBg_2,
         slideBg_3,
-      ]
-
+      ],
+      activeSlide : 0,
+      animated : false
     }
+    
   },
   methods: {
-  
+    getChangeNext(){
+      console.log("funge")
+      this.activeSlide++
+      if(this.activeSlide == this.carousel_slide.length){
+        this.activeSlide = 0
+      }
+    },
+    getChangePrev(){
+      console.log("funge") 
+      this.activeSlide--
+      if(this.activeSlide < 0 ){
+        this.activeSlide = this.carousel_slide.length - 1 
+      }
+      
+    },
+    getAnimation() {
+      this.animated = !this.animated
+      setTimeout(() => {
+        this.animated = !this.animated
+      }, 1000);
+    } 
   },
   mounted() {
-
+    // this.getAnimation()
   }
 }
 
@@ -42,39 +64,80 @@ export default {
 </script>
 
 <template>
-  <!-- impostare una variabile per swichtare le slide del carosello -->
-    <section class="d-flex justify-content-center align-items-center flex-wrap debug" v-bind:style="{ backgroundImage: 'url(' + background + ')' }">
-     <div class="p-5" style=" border: 1px solid red;">
-        <img :src="carousel_slide[0]" alt="">
-        <img style="position: absolute;left:30%;z-index:-2;top:30%" :src="carousel_bg[0]" alt="">
-     </div>
-    </section>
-  
+
+  <section class="d-flex justify-content-center align-items-center flex-wrap debug"
+    v-bind:style="{ backgroundImage: 'url(' + background + ')' }">
+    <button class="btn btn-light rounded-circle py-3 prev" style="position: absolute; left:-25px"
+      @click="getChangePrev(),getAnimation()">
+      PREV
+    </button>
+    <div class="p-5" style=" border: 1px solid red;">
+
+      <img @animationed="this.animated = false" :class="{ 'box': animated }" :src="carousel_slide[activeSlide]" alt="">
+
+      <img @animationed="this.animated = false" :class="{ 'box2': animated }" style="position: absolute;left:30%;z-index:-2;top:30%" :src="carousel_bg[activeSlide]" alt="">
+    </div>
+    <button class="btn btn-light rounded-circle py-3 next" style="position: absolute; right:-25px"
+      @click="getChangeNext(),getAnimation()">
+      NEXT
+    </button>
+  </section>
+
 </template>
 
 <style scoped>
 .myBg{
   position: absolute;
   top:-150px;
-  z-index: -1;
+  z-index: 0;
   object-fit: contain;
   object-position: bottom;
   height: 750px;
   width: 100%; 
 } 
 section{
-  position: absolute;
-  top :-25px;
-  z-index: -1;
+  position: relative;
+  top:-25px;
+  z-index: 0;
   height: 80vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
   padding-top:10rem ;
+  overflow: hidden;
 }
-.carousel{
+.next{
+  transform: rotate(90deg);
+ 
+}
+.prev{
+  transform: rotate(-90deg);
+}
+.box {
+	animation: animate 1s ease ;
+  
+}
+.box2{
+  animation: zoom 1s ease
+}
+ @keyframes animate {
+	0% {
+		transform: translateY(-100px);
+	}
+	100% {
+		transform:translateY(0);
+	}
+ }
+ @keyframes zoom {
+  
+  0%{
+    transform: scale(50%);
+  }100%{
+    transform: scale(100%);
+  }
+  
+ }
 
-}
 
 </style>

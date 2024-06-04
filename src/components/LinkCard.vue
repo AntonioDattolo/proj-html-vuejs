@@ -23,14 +23,15 @@ export default {
 </script>
 <template>
     <li class="dropdown-item" style="" >
-      <img v-if="index == 2" style="height: 10px;margin-right: -22px; " :src="iconUrl" alt="">
-      <img style="height: 10px;" class="myVisible" :src="iconUrl" alt="">
-      <a id="a" class="text-decoration-none text-black" href="#">
-      {{links}}
-      </a>
+      <img v-if="index == 2" style="height: 10px;margin-right: -22px; filter:invert(1)" :src="iconUrl" alt="">
+      <img style="height: 10px;filter:invert(1)" class="myVisible" :src="iconUrl" alt="">
+        <a id="a" class="text-decoration-none text-white" href="#">
+          {{links}}
+        </a>
     </li>
 </template>
 <style scoped>
+
 .myVisible{
   visibility: hidden;
 }.dropdown-item:hover{

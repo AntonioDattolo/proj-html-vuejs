@@ -28,22 +28,23 @@ let myData = reactive({
             shop_pages: ["My Account", "Cart", "Checkout"]
         },
         event: ["Event List", "Event Single"],
-        blog: {
-            blog_links: [
-                "Right Sidebar",
-                "Left Sidebar",
-                "Without Sidebar",
-                "Post Types"],
-            blog_submenu: [
-                "Standard",
-                "Gallery",
-                "Quote",
-                "Link",
-                "Audio",
-                "Video",
-                "No Sidebar"
-            ]
-        },
+        blog: 
+            [
+                {name :[ "Right Sidebar",  "Left Sidebar",  "Without Sidebar"] },
+                {
+                    name: "Post Types",
+                    class :"dropdown-menu", 
+                    submenu: [
+                        "Standard",
+                        "Gallery",
+                        "Quote",
+                        "Link",
+                        "Audio",
+                        "Video",
+                        "No Sidebar"
+                    ]
+                }
+            ],
         landing: "Landing",
         }
 
