@@ -35,7 +35,7 @@ export default {
   <section class="container-fluid d-flex">
     <div class="col-3 " v-for="card in cards">
       <img class="w-100" :src="card" alt="">
-      <div class="myBg" style="height: 321px; width: 469px; position:absolute; top:0">
+      <div class="myBg" style="height: 432px; width: 630px; position:absolute; top:0">
         <div class="eye">
           <i class="fa-regular fa-eye"></i>
         </div>
