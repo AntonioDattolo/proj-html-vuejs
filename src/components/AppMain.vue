@@ -1,11 +1,13 @@
 <script>
 import Jumbo from './Jumbo.vue';
 import cardContainer from './Card.vue'
+import LastMainContent from './LastMainContent.vue';
 
 export default {
   components: {
    Jumbo,
-   cardContainer
+   cardContainer,
+   LastMainContent
   },
   data() {
     return {
@@ -27,6 +29,7 @@ export default {
    
     <Jumbo />
     <cardContainer />
+    <LastMainContent />
    
   
 </template>
