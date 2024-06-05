@@ -1,15 +1,11 @@
 <script>
 import myData from '../store/data';
 export default {
-  
-  
   data() {
     
     return {
-        myData
+      myData
       
-       
-
     }
   },
   methods: {
@@ -22,18 +18,13 @@ export default {
 
 </script>
 <template>
-  
     <ul class="dropdown-submenu">
       <li v-for="link in myData.links.blog[1].submenu" class="dropdown-item" style="">
         <a class="text-decoration-none text-white " href="">
           {{ link }}
-
         </a>
-      
-    </li>
-
+      </li>
     </ul>
-  
 </template>
 <style scoped>
 .dropdown-submenu{

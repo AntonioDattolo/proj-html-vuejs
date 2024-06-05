@@ -1,103 +1,131 @@
 <script>
 import myData from '../store/data';
 import LinkCard from './LinkCard.vue';
-import submenu from './submenu.vue'
+import SubMenu from './SubMenu.vue'
 import imgUrl from '../assets/img/h5-logo-divided-header.png'
 import iconUrl from '../assets/svg/svg-0.svg'
+import iconDark from '../assets/img/h5-logo-divided-header-dark.png'
+import iconCart from '../assets/svg/svg-1.svg'
 
 export default {
     components :{
     LinkCard,
-    submenu
+    SubMenu
     },
   data() {
    
     return {
         myData,
         imgUrl,
-        iconUrl
-
+        iconUrl,
+        iconCart,
+        iconDark,
+        scrollLine : null,
+        visible : ""
     }
   },
   methods: {
-  
+    getFix(){
+       this.scrollLine = window.scrollY
+        if(this.scrollLine > 100){
+            console.log(this.scrollLine,"sta andando")
+            // nav.classList.add("ciao")  
+             this.visible ="navFixed"
+        }else if(this.scrollLine < 100){
+            console.log("contiene")
+            this.visible =""
+        } 
+    }
+  },
+  created(){
+    window.addEventListener('scroll', this.getFix)
   },
   mounted() {
-
+    
   }
 }
 
 </script>
 
 <template>
-    <section class="debug container align-items-center">
+    <section :class="this.visible" class="container-fluid align-items-center" >
         <nav class="bg-transparent">
-            <div class="d-flex align-items-center p-2 ">
-                <div class="col-2">
-                    <button class="btn" style="background-color: #c83b1a; text-wrap: nowrap;">
+            <div id="left" class="d-flex align-items-center p-2 ">
+                <div  class="col-2 text-center d-flex justify-content-end">
+                    <button v-if="this.scrollLine < 100" class="btn" style="background-color: #c83b1a; text-wrap: nowrap;">
                         ORDER ONLINE
                     </button>
                 </div>
-                <div class="col-8">
-                    <ul class=" col-12 d-flex justify-content-around m-0" style="list-style: none;">
-                        <li class=" align-self-center dropdown">
+                <div class="col-8 text-center">
+                    <ul class=" col-12 d-flex justify-content-center m-0" style="list-style: none;">
+                        <li class="d-flex align-items-center dropdown  col-1" style="height: 100px;">
                             <a class="nav-link" aria-current="page" href="#">
-                                <img :src="iconUrl" style="height: 5px; filter: invert(1);" alt="">
-                                Home
+                                <img :src="iconUrl" style="height: 10px; filter: invert(1);" alt="">
+                                HOME
                             </a>
-                            <!-- <ul class="dropdown-menu" >
-                                <li v-for="link in links.home"><a class="text-decoration-none text-black" href="#">{{ link }}</a></li>
-                            </ul> -->
                             <ul class="dropdown-menu text-start">
                                  <LinkCard v-for="link,i of myData.links.home" :links="link" :index="i"/> 
                             </ul>
                         </li>
-                        <li class=" align-self-center dropdown">
-                            <a class="nav-link" href="#">Pages</a>
+                        <li class="d-flex align-items-center  dropdown col-1" style="height: 100px;">
+                            <a class="nav-link" href="#">
+                                PAGES
+                            </a>
                             <ul class="dropdown-menu" >
                                 <LinkCard v-for="link in myData.links.pages" :links="link"/>
                             </ul>
                         </li>
-                        <li class=" align-self-center dropdown">
-                            <a class="nav-link" href="#">Menu</a>
+                        <li class="d-flex align-items-center dropdown col-1" style="height: 100px;">
+                            <a class="nav-link" href="#">
+                                MENU
+                            </a>
                             <ul class="dropdown-menu" >
                                 <LinkCard v-for="link in myData.links.menu.list_types" :links="link"/>
                             </ul>
-                            
                         </li>
-                        <li class="">
-                            <a class="nav-link active" aria-current="page" href="#">
-                                <img :src="imgUrl" style="height: 105px;" alt="">
+                        <li class=" col-1 mx-5 d-flex justify-content-center" style="height: 100px;">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img v-if="this.scrollLine < 100" :src="imgUrl" style="height: 105px;" alt="">
+                                <img v-if="this.scrollLine > 100" :src="iconDark" style="height: 105px;" alt="">
                             </a>
                         </li>
-                        <li class=" align-self-center dropdown">
-                            <a class="nav-link active" aria-current="page" href="#">Event</a>
+                        <li class="d-flex align-items-center dropdown col-1" style="height: 100px;">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                EVENT
+                            </a>
                             <ul class="dropdown-menu" >
                                 <LinkCard v-for="link in myData.links.event" :links="link" />
                             </ul>
                         </li>
-                        <li class=" align-self-center dropdown">
-                            <a class="nav-link" href="#">Blog</a>
+                        <li class="d-flex align-items-center dropdown col-1" style="height: 100px;">
+                            <a class="nav-link" href="#">
+                                BLOG
+                            </a>
                             <ul class="dropdown-menu" id="blog-menu" >
                                 <LinkCard v-for="link in myData.links.blog[0].name" :links="link" />
                                 <li class="dropdown-item dropdown" style="">
-                                    <img style="height: 10px;" class="myVisible" :src="iconUrl" alt="">
-                                    <a id="a" class="text-decoration-none text-black" href="#">
-
+                                    <img style="height: 10px; filter:invert(1)" class="myVisible" :src="iconUrl" alt="">
+                                    <a id="a" class="text-decoration-none text-white" href="#">
                                         {{ myData.links.blog[1].name }}
                                     </a>
-                                    <submenu />
+                                    <SubMenu />
                                 </li>
                             </ul>
                         </li>
-                        <li class=" align-self-center">
-                            <a class="nav-link" href="#">{{myData.links.landing}}</a>
+                        <li class="d-flex align-items-center col-1" style="height: 100px;">
+                            <a class="nav-link" href="#">{{myData.links.landing.toUpperCase()}}</a>
                         </li>
                     </ul>
                 </div>
-                <div class="align-self-center d-flex justify-content-around col-2">
-                    <a class="text-decoration-none text-white" href="">CART</a>
-                    <a class="text-decoration-none text-white" href="">SEARCH</a>
+                <div id="right" class="align-self-center d-flex justify-content-start col-2">
+                    <a class="text-decoration-none text-white mx-2" href="">
+                        <img style="height: 19px; width: 19px; filter: invert(1);" :src="iconCart" alt="">
+                        CART
+                    </a>
+                    <a class="text-decoration-none text-white mx-2" href="">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        SEARCH
+                    </a>
                 </div>
             </div>
         </nav>
@@ -116,21 +144,22 @@ export default {
     background-color: whitesmoke;
     text-decoration: none;
     list-style: none;
-  line-height-step: 0;
+    line-height-step: 0;
     margin-left: 0;
 }
 .dropdown:hover>.dropdown-menu{
+    border-top:2px solid #c83b1a;
     background-color: rgb(36, 36, 36);
     display: block;
     position: absolute;
     width: 180px;
-    left: 0;
+    left: 0px;
+    top:107px
 }
 section{
     margin: 0 auto;
     position: absolute;
     top:0;
-    left:15%;
     z-index:1;
 }
 .myVisible{
@@ -141,5 +170,12 @@ section{
   .myVisible{
     visibility: visible;
   }
+}
+.navFixed{
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    left: 0;
+    color: black;
 }
 </style>

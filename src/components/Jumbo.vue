@@ -46,7 +46,6 @@ export default {
       if(this.activeSlide < 0 ){
         this.activeSlide = this.carousel_slide.length - 1 
       }
-      
     },
     getAnimation() {
       this.animated = !this.animated
@@ -56,33 +55,27 @@ export default {
     } 
   },
   mounted() {
-    // this.getAnimation()
   }
 }
-
 
 </script>
 
 <template>
-
-  <section class="d-flex justify-content-center align-items-center flex-wrap debug"
+  <section class="d-flex justify-content-center align-items-center flex-wrap"
     v-bind:style="{ backgroundImage: 'url(' + background + ')' }">
-    <button class="btn btn-light rounded-circle py-3 prev" style="position: absolute; left:-25px"
+    <button class="btn btn-light rounded-circle p-2 px-2 prev" style="position: absolute; left:-35px"
       @click="getChangePrev(),getAnimation()">
       PREV
     </button>
-    <div class="p-5" style=" border: 1px solid red;">
-
+    <div class="p-5">
       <img @animationed="this.animated = false" :class="{ 'box': animated }" :src="carousel_slide[activeSlide]" alt="">
-
       <img @animationed="this.animated = false" :class="{ 'box2': animated }" style="position: absolute;left:30%;z-index:-2;top:30%" :src="carousel_bg[activeSlide]" alt="">
     </div>
-    <button class="btn btn-light rounded-circle py-3 next" style="position: absolute; right:-25px"
+    <button class="btn btn-light rounded-circle p-2 px-2 next" style="position: absolute; right:-35px"
       @click="getChangeNext(),getAnimation()">
       NEXT
     </button>
   </section>
-
 </template>
 
 <style scoped>
@@ -109,14 +102,12 @@ section{
 }
 .next{
   transform: rotate(90deg);
- 
 }
 .prev{
   transform: rotate(-90deg);
 }
 .box {
 	animation: animate 1s ease ;
-  
 }
 .box2{
   animation: zoom 1s ease
@@ -124,20 +115,26 @@ section{
  @keyframes animate {
 	0% {
 		transform: translateY(-100px);
-	}
+    opacity: 0;
+	}50%{
+    opacity: 0.5;
+  }
 	100% {
 		transform:translateY(0);
+    opacity: 1;
 	}
  }
  @keyframes zoom {
-  
   0%{
     transform: scale(50%);
   }100%{
     transform: scale(100%);
   }
-  
- }
-
-
+}
+ button{
+  color: #c83b1a;
+  font-weight: 500;
+  width: 85px;
+  height: 65px;
+}
 </style>

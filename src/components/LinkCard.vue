@@ -1,15 +1,13 @@
 <script>
 import iconUrl from '../assets/svg/svg-0.svg'
 export default {
-  props : ["links",
-            "index"
+  props : [
+    "links",
+    "index"
   ],
   data() {
-    
     return {
       iconUrl
-       
-
     }
   },
   methods: {
@@ -19,8 +17,8 @@ export default {
 
   }
 }
-
 </script>
+
 <template>
     <li class="dropdown-item" style="" >
       <img v-if="index == 2" style="height: 10px;margin-right: -22px; filter:invert(1)" :src="iconUrl" alt="">
@@ -30,8 +28,8 @@ export default {
         </a>
     </li>
 </template>
-<style scoped>
 
+<style scoped>
 .myVisible{
   visibility: hidden;
 }.dropdown-item:hover{

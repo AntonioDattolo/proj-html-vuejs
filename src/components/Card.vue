@@ -14,7 +14,6 @@ export default {
   data() {
     return {
       cards:[
-
         card_1,
         card_2,
         card_3,
@@ -22,7 +21,6 @@ export default {
       ],
       card_hover
     }
-    
   },
   methods: {
  
@@ -31,9 +29,8 @@ export default {
 
   }
 }
-
-
 </script>
+
 <template>
   <section class="container-fluid d-flex">
     <div class="col-3 " v-for="card in cards">
@@ -41,19 +38,16 @@ export default {
       <div class="myBg" style="height: 321px; width: 469px; position:absolute; top:0">
         <div class="eye">
           <i class="fa-regular fa-eye"></i>
-
         </div>
       </div>
     </div>
-    
   </section>
-
 </template>
+
 <style scoped> 
 section{
   position: relative;
 }
-
 .col-3:hover{
   .myBg{
     background-image: radial-gradient(#c0bebe 20%, transparent 20%), radial-gradient(#c0bebe 20%, transparent 20%);
