@@ -6,6 +6,9 @@ import imgUrl from '../assets/img/h5-logo-divided-header.png'
 import iconUrl from '../assets/svg/svg-0.svg'
 import iconDark from '../assets/img/h5-logo-divided-header-dark.png'
 import iconCart from '../assets/svg/svg-1.svg'
+import iconPizza from '../assets/svg/svg-4.svg'
+import asideIconFirst from '../assets/svg/svg-10.svg'
+import asideIconSecond from '../assets/svg/svg-9.svg'
 
 export default {
     components :{
@@ -20,6 +23,9 @@ export default {
         iconUrl,
         iconCart,
         iconDark,
+        iconPizza,
+        asideIconFirst,
+        asideIconSecond,
         scrollLine : null,
         visible : ""
     }
@@ -129,6 +135,17 @@ export default {
                 </div>
             </div>
         </nav>
+        <div v-if="this.scrollLine > 100" style="background-color: whitesmoke; height: 50px; width: 50px; position: fixed; right: 25px; bottom: 35px; z-index:9999" class="rounded-circle d-flex justify-content-center p-2">
+            <img :src="iconPizza" alt="" class="rotatePizza">
+        </div>
+        <aside style="position: fixed; right: 15px; bottom: calc(50vh - 100px); z-index:9999">
+            <div style="background-color:#ee2852; height: 50px; width: 50px; " class="my-1 p-2">
+                <img :src="asideIconFirst" alt="" style="filter: invert(100%) saturate(0%) hue-rotate(15deg) brightness(118%) contrast(119%)">
+            </div>
+            <div style="background-color: whitesmoke; height: 50px; width: 50px; " class="my-1 p-2">
+                <img :src="asideIconSecond" alt="">
+            </div>
+        </aside>
     </section>
 </template>
 
@@ -177,5 +194,12 @@ section{
     width: 100%;
     left: 0;
     color: black;
+}
+.rotatePizza:hover{
+    animation: rotate 1.7s infinite;
+}
+@keyframes rotate {
+  from {transform:rotatez(0)}
+  to {transform: rotatez(-90deg)};
 }
 </style>

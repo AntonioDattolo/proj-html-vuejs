@@ -54,7 +54,6 @@ section{
     background-color: #ffffff;
     background-position: 0 0, 6px 6px;
     background-size: 12px 12px;
-    z-index: 999;
   }.eye{
     display: inline-block;
   }

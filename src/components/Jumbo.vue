@@ -48,10 +48,10 @@ export default {
       }
     },
     getAnimation() {
-      this.animated = !this.animated
-      setTimeout(() => {
-        this.animated = !this.animated
-      }, 1000);
+      this.animated = true
+       setTimeout(() => {
+         this.animated = false
+       }, 1000);
     } 
   },
   mounted() {
@@ -107,10 +107,10 @@ section{
   transform: rotate(-90deg);
 }
 .box {
-	animation: animate 1s ease ;
+	animation: animate 1s linear ;
 }
 .box2{
-  animation: zoom 1s ease
+  animation: zoom 1s linear
 }
  @keyframes animate {
 	0% {
