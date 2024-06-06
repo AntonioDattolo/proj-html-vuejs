@@ -50,7 +50,6 @@ export default {
     
   }
 }
-
 </script>
 
 <template>
@@ -171,7 +170,7 @@ export default {
     position: absolute;
     width: 180px;
     left: 0px;
-    top:107px
+    top:100px
 }
 section{
     margin: 0 auto;

@@ -81,12 +81,12 @@
     data() {
       return {
         pizzas: [
-          { name: 'Fiori di zucca', price: '$7.00 - $50.00', imageUrl: '/public/img/h3-product-img-2a-150x150.png' },
-          { name: 'Valdostana', price: '$55.00', imageUrl: '/public/img/h3-product-img-6a-100x100.png' },
-          { name: 'Pizza Tartufata', price: '$45.00', imageUrl: '/public/img/h3-product-img-4a-150x150.png' },
-          { name: 'Francescana', price: '$25.00', imageUrl: '/public/img/h3-product-img-5a-150x150.png' },
-          { name: 'Campagnola', price: '$50.00 - $95.00', imageUrl: '/public/img/h3-product-img-3a-150x150.png' },
-          { name: 'Bismark', price: '<del>$35.00</del> $30.00', imageUrl: '/public/img/h3-product-img-1a-100x100.png' }
+          { name: 'Fiori di zucca', price: '$7.00 - $50.00', imageUrl: '/img/h3-product-img-2a-150x150.png' },
+          { name: 'Valdostana', price: '$55.00', imageUrl: '/img/h3-product-img-6a-100x100.png' },
+          { name: 'Pizza Tartufata', price: '$45.00', imageUrl: '/img/h3-product-img-4a-150x150.png' },
+          { name: 'Francescana', price: '$25.00', imageUrl: '/img/h3-product-img-5a-150x150.png' },
+          { name: 'Campagnola', price: '$50.00 - $95.00', imageUrl: '/img/h3-product-img-3a-150x150.png' },
+          { name: 'Bismark', price: '<del>$35.00</del> $30.00', imageUrl: '/img/h3-product-img-1a-100x100.png' }
         ]
       };
     },
@@ -119,7 +119,7 @@
       width: 200px;
     }
     .mystarbg {
-      background-image: url(/public/img/cielostellato.PNG);
+      background-image: url(/img/cielostellato.PNG);
     }
     .bigpadding {
       padding: 100px;
@@ -130,7 +130,7 @@
       margin: 2rem 0;
     }
     .myimgbg {
-      background-image: url(/public/img/h3-img-5a.jpg);
+      background-image: url(/img/h3-img-5a.jpg);
       background-size: cover;
     }
     .carousel {

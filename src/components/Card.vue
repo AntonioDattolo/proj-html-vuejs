@@ -32,10 +32,10 @@ export default {
 </script>
 
 <template>
-  <section class="container-fluid d-flex">
-    <div class="col-3 " v-for="card in cards">
+  <section class="container-fluid d-flex h-100">
+    <div class="col-3 " style=" position: relative; " v-for="card in cards">
       <img class="w-100" :src="card" alt="">
-      <div class="myBg" style="height: 432px; width: 630px; position:absolute; top:0">
+      <div class="myBg" style="height: 100%; width: 100%; position:absolute; top:0">
         <div class="eye">
           <i class="fa-regular fa-eye"></i>
         </div>
@@ -45,9 +45,6 @@ export default {
 </template>
 
 <style scoped> 
-section{
-  position: relative;
-}
 .col-3:hover{
   .myBg{
     background-image: radial-gradient(#c0bebe 20%, transparent 20%), radial-gradient(#c0bebe 20%, transparent 20%);

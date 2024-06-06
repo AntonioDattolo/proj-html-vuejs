@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="col-6">
-                    <img class="w-100" src="/public/img/footer-img-1.jpg" alt="">
+                    <img class="w-100" src="/img/footer-img-1.jpg" alt="">
                 </div>
             </div>
 
@@ -134,21 +134,21 @@
 </template>
   
   <style>
-  /* .full-width-container {
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  } */
-  
   .btn-danger {
     background-color: #dc3545;
     border-color: #dc3545;
   }
   
   .mybgimgred {
-    background-image: url(/public/img/h3-background-img-3.jpg);
+    background-image: url(./public/img/h3-background-img-3.jpg);
     background-size: cover;
     height: 14rem;
+  }
+  .mystarbg{
+    background-image: url(../../public/img/cielostellato.png);
+    background-position: contain;
+    
+    height: 100%;
   }
   
   .h-100 {
